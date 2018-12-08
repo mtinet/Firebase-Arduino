@@ -2,6 +2,9 @@
 
 This is an Arduino project that writes and updates data to a Firebase Realtime Database.
 
+## 아래 링크로 들어가면 이전 버전의 firebase에서 firebase와 esp8266이 제대로 동작하지 않는 문제를 해결할 수 있음.  
+https://github.com/FirebaseExtended/firebase-arduino/issues/380#issuecomment-431029715
+
 ## Arduino IDE Setup & adding libraries
 
 - Install [Arduino IDE](https://www.arduino.cc/en/Main/Software)
