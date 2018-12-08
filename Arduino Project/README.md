@@ -2,7 +2,7 @@
 
 This is an Arduino project that writes and updates data to a Firebase Realtime Database.
 
-## 아래 링크로 들어가면 이전 버전의 firebase에서 firebase와 esp8266이 제대로 동작하지 않는 문제를 해결할 수 있으며 이 페이지가 그 .  
+## 아래 링크로 들어가면 이전 버전의 firebase에서 firebase와 esp8266이 제대로 동작하지 않는 문제를 해결할 수 있으며 이 페이지가 그 해결책임. 지금 보는 페이지의 제일 아래로 내려가서 적혀있는 방법대로 진행할 것.  
 https://github.com/FirebaseExtended/firebase-arduino/issues/380#issuecomment-431029715
 
 ## Arduino IDE Setup & adding libraries
@@ -104,6 +104,10 @@ Open one of the sketch.ino examples with Arduino IDE and set your own data in:
 To downgrade, go to Sketch -> Include library -> Manage Libraries -> search for [ArduinoJson](https://github.com/bblanchon/ArduinoJson) 
 -> click Select version -> 5.13.2 -> restart Arduino IDE.
 
+번역  
+- 아두이노 IDE - 스케치 - 라이브러리 포함하기 - ArduinoJson 을 찾아서 설치함(버전 5.13.4.) - 아두이노 IDE 재시작  
+
+
 ### [firebase-arduino](https://github.com/firebase/firebase-arduino) 
 At this moment the version which I'm using (v0.3) [firebase-arduino](https://github.com/firebase/firebase-arduino) seems not to work anymore, so if you get an error in the Arduino IDE serial monitor log like "setting /number failed" (and you cannot read/write to firebase) try this:
 [firebase-arduino change fingerprint 1](https://github.com/FirebaseExtended/firebase-arduino/issues/373#issuecomment-411006219) or [firebase-arduino change fingerprint 2](https://github.com/FirebaseExtended/firebase-arduino/issues/369#issuecomment-410087936). So basically:
@@ -114,5 +118,13 @@ At this moment the version which I'm using (v0.3) [firebase-arduino](https://git
  - after you add the new fingerprint into FirebaseHttpClient.h, save it and put all the files back into a zip file and reimport the library like shown in the "Arduino IDE Setup & adding libraries" section.
  - restart Arduino IDE and recompile your sketch.
 
+번역  
+- 현재 firebse-arduino(v0.3)은 더이상 동작하지 않음. 예제를 실행했을 때 시리얼 모니터에서 "setting /numver failed"라고 뜨면 연결이 안됨을 확인할 수 있음.  
+- 위에 있는 firebase-arduino change fingerprint 1, 2를 들어가보면 새로운 fingerprint가 있음  
+- 먼저 [Server Fingerprints](https://www.grc.com/fingerprints.htm)에 들어가서 새로운 firebase fingerprint를 확인한다. Fingerprint Site에서 본인의 firebase 주소(예. mydatabase.firebaseio.com)를 입력하고 클릭한다. 나의 fingerprint는 다음과 같음 다만 이것은 추후 또 변할 수 있음. 
+6F:D0:9A:52:C0:E9:E4:CD:A0:D3:02:A4:B7:A1:92:38:2D:CA:2F:26
+- 기존의 firebase-arduino 라이브러리를 삭제함. 아두이노 라이브러리 제거 섹션이나 C드라이브의 program files(x86)-arduino-ligraries 폴더 안에서 직접 삭제도 가능.  
+- [firebase-arduino](https://github.com/firebase/firebase-arduino)에서 새로운 firebase-arduino 라이브러리를 다운로드 받아서 C드라이브의 program files(x86)-arduino-ligraries 폴더 안에 설치하고 라이브러리 폴더 안에 있는 src/FirebaseHttpClient.h 파일을 열고 kFirebaseFingerprint를 찾아서 새로운 fingerprint로 변경하고 저장하고 아두이노 IDE를 다시 켠다.(또는 zip파일로 다시 만들어서 라이브러리 불러오기를 해도 됨)   
 
+  
 
